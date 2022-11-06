@@ -1,0 +1,17 @@
+G:\Projects\LearningProjects\Invoice\Invoice.Infra.Data\bin\Debug\net6.0\Invoice.Infra.Data.deps.json
+G:\Projects\LearningProjects\Invoice\Invoice.Infra.Data\bin\Debug\net6.0\Invoice.Infra.Data.runtimeconfig.json
+G:\Projects\LearningProjects\Invoice\Invoice.Infra.Data\bin\Debug\net6.0\Invoice.Infra.Data.dll
+G:\Projects\LearningProjects\Invoice\Invoice.Infra.Data\bin\Debug\net6.0\Invoice.Infra.Data.pdb
+G:\Projects\LearningProjects\Invoice\Invoice.Infra.Data\bin\Debug\net6.0\Invoice.Domain.dll
+G:\Projects\LearningProjects\Invoice\Invoice.Infra.Data\bin\Debug\net6.0\Invoice.Domain.pdb
+G:\Projects\LearningProjects\Invoice\Invoice.Infra.Data\obj\Debug\net6.0\Invoice.Infra.Data.csproj.AssemblyReference.cache
+G:\Projects\LearningProjects\Invoice\Invoice.Infra.Data\obj\Debug\net6.0\Invoice.Infra.Data.GeneratedMSBuildEditorConfig.editorconfig
+G:\Projects\LearningProjects\Invoice\Invoice.Infra.Data\obj\Debug\net6.0\Invoice.Infra.Data.AssemblyInfoInputs.cache
+G:\Projects\LearningProjects\Invoice\Invoice.Infra.Data\obj\Debug\net6.0\Invoice.Infra.Data.AssemblyInfo.cs
+G:\Projects\LearningProjects\Invoice\Invoice.Infra.Data\obj\Debug\net6.0\Invoice.Infra.Data.csproj.CoreCompileInputs.cache
+G:\Projects\LearningProjects\Invoice\Invoice.Infra.Data\obj\Debug\net6.0\Invoice.Infra.Data.csproj.CopyComplete
+G:\Projects\LearningProjects\Invoice\Invoice.Infra.Data\obj\Debug\net6.0\Invoice.Infra.Data.dll
+G:\Projects\LearningProjects\Invoice\Invoice.Infra.Data\obj\Debug\net6.0\refint\Invoice.Infra.Data.dll
+G:\Projects\LearningProjects\Invoice\Invoice.Infra.Data\obj\Debug\net6.0\Invoice.Infra.Data.pdb
+G:\Projects\LearningProjects\Invoice\Invoice.Infra.Data\obj\Debug\net6.0\Invoice.Infra.Data.genruntimeconfig.cache
+G:\Projects\LearningProjects\Invoice\Invoice.Infra.Data\obj\Debug\net6.0\ref\Invoice.Infra.Data.dll

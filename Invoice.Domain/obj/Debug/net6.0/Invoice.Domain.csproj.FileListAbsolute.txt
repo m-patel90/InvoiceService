@@ -1,0 +1,12 @@
+G:\Projects\LearningProjects\Invoice\Invoice.Domain\bin\Debug\net6.0\Invoice.Domain.deps.json
+G:\Projects\LearningProjects\Invoice\Invoice.Domain\bin\Debug\net6.0\Invoice.Domain.dll
+G:\Projects\LearningProjects\Invoice\Invoice.Domain\bin\Debug\net6.0\Invoice.Domain.pdb
+G:\Projects\LearningProjects\Invoice\Invoice.Domain\obj\Debug\net6.0\Invoice.Domain.csproj.AssemblyReference.cache
+G:\Projects\LearningProjects\Invoice\Invoice.Domain\obj\Debug\net6.0\Invoice.Domain.GeneratedMSBuildEditorConfig.editorconfig
+G:\Projects\LearningProjects\Invoice\Invoice.Domain\obj\Debug\net6.0\Invoice.Domain.AssemblyInfoInputs.cache
+G:\Projects\LearningProjects\Invoice\Invoice.Domain\obj\Debug\net6.0\Invoice.Domain.AssemblyInfo.cs
+G:\Projects\LearningProjects\Invoice\Invoice.Domain\obj\Debug\net6.0\Invoice.Domain.csproj.CoreCompileInputs.cache
+G:\Projects\LearningProjects\Invoice\Invoice.Domain\obj\Debug\net6.0\Invoice.Domain.dll
+G:\Projects\LearningProjects\Invoice\Invoice.Domain\obj\Debug\net6.0\refint\Invoice.Domain.dll
+G:\Projects\LearningProjects\Invoice\Invoice.Domain\obj\Debug\net6.0\Invoice.Domain.pdb
+G:\Projects\LearningProjects\Invoice\Invoice.Domain\obj\Debug\net6.0\ref\Invoice.Domain.dll
