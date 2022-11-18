@@ -1,4 +1,5 @@
 ﻿using Invoice.Infra.Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,17 +19,18 @@ namespace Invoice.Infra.Data.Repository
 
         public Task Add(T entity)
         {
-            throw new NotImplementedException();
+            _appDbContext.Set<T>().Add(entity);
+            return Task.CompletedTask;
         }
 
         public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            _appDbContext.Set<T>().Remove(entity);
         }
 
         public Task<List<T>> GetAll()
         {
-            throw new NotImplementedException();
+           return _appDbContext.Set<T>().ToListAsync();
         }
 
         public Task<T> GetById(int id)

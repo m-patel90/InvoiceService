@@ -9,5 +9,6 @@ namespace Invoice.Infra.Data.Interfaces
 {
     public interface IInvoiceDetailsRepository : IGenericRepository<InvoiceDetails>
     {
+        List<InvoiceDetails> GetByInvoiceId(int invoiceId);
     }
 }

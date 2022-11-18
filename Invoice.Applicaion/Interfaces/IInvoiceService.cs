@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Invoice.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace Invoice.Applicaion.Interface
 {
     public interface IInvoiceService
     {
+        Task SaveInvoice(InvoiceInfo invoiceInfo);
     }
 }

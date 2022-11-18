@@ -12,5 +12,6 @@ namespace Invoice.Domain
         public DateTime DueDate { get; set; }
         public string Status { get; set; } = String.Empty;
         public DateTime CreatedDate { get; set; }
+        public List<InvoiceDetails> invoiceDetails { get; set; }
     }
 }

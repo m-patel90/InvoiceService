@@ -24,13 +24,5 @@ namespace Invoice.Infra.Data.Repository
         {
             return _contex.SaveChanges();
         }
-
-        public void Dispose()
-        {
-            Dispose();
-            GC.SuppressFinalize(this);
-        }
-
-
     }
 }

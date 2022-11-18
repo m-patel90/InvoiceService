@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Invoice.Infra.Data.Interfaces
 {
-    public interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork //: IDisposable
     {
         IInvoiceInfoRepository InvoiceInfo { get; }
         IInvoiceDetailsRepository InvoiceDetails { get; }
