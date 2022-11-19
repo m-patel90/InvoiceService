@@ -2,12 +2,14 @@
 using Invoice.Domain;
 using Invoice.Infra.Data.Interfaces;
 using Invoice.Infra.Data.Repository;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Runtime.CompilerServices;
 
 namespace Invoice.Services.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class InvoiceController : ControllerBase
