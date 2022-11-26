@@ -9,9 +9,40 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using Serilog;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//Option-1: Serilog on top of MEL(Microsoft Etension logging)
+//builder.Host.UseSerilog((ctx, lc) => lc
+//    .WriteTo.Console()
+//    //.WriteTo.File("log-.txt", rollingInterval: RollingInterval.Day)
+//    .ReadFrom.Configuration(ctx.Configuration)
+//    );
+
+//Option-2: It will use pure serilog API without MEL
+//Log.Logger = new LoggerConfiguration()
+//    .WriteTo.Console()
+//    .WriteTo.File("log-.txt", rollingInterval: RollingInterval.Day)
+//    .CreateLogger();
+//Log.Information("Ah, there you are!");
+
+
+//Option-3:var logger = new LoggerConfiguration()
+//    .WriteTo.Console()
+//    .WriteTo.File("log-.txt", rollingInterval: RollingInterval.Day)
+//    .CreateLogger();
+//builder.Logging.ClearProviders();
+//builder.Logging.AddSerilog(logger);
+
+//Option-4: Create logger with read configuration
+var logger = new LoggerConfiguration()
+        .ReadFrom.Configuration(builder.Configuration)
+        .Enrich.FromLogContext()
+        .CreateLogger();
+builder.Logging.ClearProviders();
+builder.Logging.AddSerilog(logger);
 
 // Add services to the container.
 
@@ -56,6 +87,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+//app.UseSerilogRequestLogging(); //use this with option-1
 
 app.UseAuthentication();
 

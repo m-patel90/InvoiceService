@@ -1,4 +1,5 @@
 ﻿using Invoice.Domain;
+using Serilog;
 using System.Net;
 
 namespace Invoice.Services.API
@@ -21,7 +22,8 @@ namespace Invoice.Services.API
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex.Message);
+                _logger.LogError(ex , ex.Message);
+                Log.Error(ex, ex.Message);
                 await HandleExceptionAsync(httpContext, ex);
             }
         }

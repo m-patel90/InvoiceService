@@ -2,6 +2,7 @@
 using Invoice.Domain;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,15 @@ namespace Invoice.Applicaion.Services
 {
     public class TokenService : ITokenService
     {
+        private ILogger<TokenService> _logger;
         private const double EXPIRY_DURATION_MINUTES = 30;
+        public TokenService(ILogger<TokenService> logger)
+        {
+            _logger = logger;
+        }
         public string BuildToken(string key, string issuer, UserModel user)
         {
-
+            _logger.LogTrace("Token generate");
             var claims = new[] {
                 new Claim(ClaimTypes.Name, user.UserName),
                 new Claim(ClaimTypes.NameIdentifier,
