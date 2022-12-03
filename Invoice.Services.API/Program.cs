@@ -1,3 +1,4 @@
+using Invoice.Applicaion.CQRS.Commands;
 using Invoice.Applicaion.Interface;
 using Invoice.Applicaion.Interfaces;
 using Invoice.Applicaion.Services;
@@ -5,11 +6,13 @@ using Invoice.Infra.Data;
 using Invoice.Infra.Data.Interfaces;
 using Invoice.Infra.Data.Repository;
 using Invoice.Services.API;
+using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
+using System.Reflection;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -56,6 +59,11 @@ builder.Services.AddScoped<IInvoiceDetailsRepository, InvoiceDetailsRepository>(
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IInvoiceService, InvoiceService>();
 builder.Services.AddSingleton<ITokenService, TokenService>();
+
+builder.Services.AddScoped<IProductRepository, ProductRepository>();
+
+builder.Services.AddMediatR(typeof(Program));
+builder.Services.AddMediatR(typeof(AddProductCommand));
 
 
 builder.Services.AddDbContext<AppDbContext>(options =>

@@ -13,6 +13,7 @@ namespace Invoice.Applicaion.Validations
         public InvoiceInfoValidator()
         {
             RuleFor(InvoiceInfo => InvoiceInfo.InvoiceNo).NotEmpty();
+            RuleFor(InvoiceInfo =>  InvoiceInfo.InvoiceDate).NotEmpty();
         }
     }
 }

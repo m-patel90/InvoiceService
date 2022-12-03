@@ -17,5 +17,7 @@ namespace Invoice.Infra.Data
 
         public DbSet<InvoiceInfo> InvoiceInfo => Set<InvoiceInfo>();
         public DbSet<InvoiceDetails> InvoiceDetails => Set<InvoiceDetails>();
+
+        public DbSet<Product> Products => Set<Product>();
     }
 }
