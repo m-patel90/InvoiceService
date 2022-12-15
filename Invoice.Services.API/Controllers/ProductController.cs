@@ -1,4 +1,5 @@
 ﻿using Invoice.Applicaion.CQRS.Commands;
+using Invoice.Applicaion.CQRS.Notifications;
 using Invoice.Applicaion.CQRS.Queries;
 using Invoice.Domain;
 using MediatR;
@@ -21,8 +22,8 @@ namespace Invoice.Services.API.Controllers
         public async Task<IActionResult> AddProduct(Product product)
         {
             var productCommand = new AddProductCommand() { product = product };
-            var products = await _mediator.Send(productCommand);
-            return Ok(products);
+            var productRetrun = await _mediator.Send(productCommand);
+            return Ok(productRetrun);
         }
 
         [HttpGet("GetProduct")]

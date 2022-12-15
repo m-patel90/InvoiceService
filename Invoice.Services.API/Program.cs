@@ -1,3 +1,4 @@
+using Invoice.Applicaion.CQRS.Behaviors;
 using Invoice.Applicaion.CQRS.Commands;
 using Invoice.Applicaion.Interface;
 using Invoice.Applicaion.Interfaces;
@@ -65,6 +66,7 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddMediatR(typeof(AddProductCommand));
 
+builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("InvoiceConnection"))
