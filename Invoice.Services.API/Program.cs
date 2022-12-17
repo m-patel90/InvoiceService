@@ -89,6 +89,11 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = builder.Configuration["RedisconnectionString"].ToString();
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
