@@ -1,4 +1,5 @@
-﻿using FluentValidation.Results;
+﻿using FluentValidation;
+using FluentValidation.Results;
 using Invoice.Applicaion.Interface;
 using Invoice.Applicaion.Validations;
 using Invoice.Domain;
@@ -40,11 +41,14 @@ namespace Invoice.Services.API.Controllers
         public async Task<IActionResult> SaveInvoice(InvoiceInfo invoiceInfo)
         {
             InvoiceInfoValidator validator = new InvoiceInfoValidator();
-            ValidationResult result = validator.Validate(invoiceInfo);
-            if (!result.IsValid)
-            {
-                return BadRequest(result.Errors);
-            }
+            validator.ValidateAndThrow(invoiceInfo);
+
+
+            //ValidationResult result = validator.Validate(invoiceInfo);
+            //if (!result.IsValid)
+            //{
+            //    return BadRequest(result.Errors);
+            //}
 
             await _invoiceService.SaveInvoice(invoiceInfo);
             return Ok(invoiceInfo);
