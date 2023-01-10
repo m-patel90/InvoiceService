@@ -60,8 +60,10 @@ builder.Services.AddScoped<IInvoiceDetailsRepository, InvoiceDetailsRepository>(
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IInvoiceService, InvoiceService>();
 builder.Services.AddSingleton<ITokenService, TokenService>();
+builder.Services.AddTransient<ICustomerDapperService, CustomerDapperService>();
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddTransient<ICustomeDapperRepository, CustomerDapperRepository>();
 
 builder.Services.AddMediatR(typeof(Program));
 builder.Services.AddMediatR(typeof(AddProductCommand));
