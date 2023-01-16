@@ -5,7 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Invoice.Services.API.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("1.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     public class CustomerController : ControllerBase
     {

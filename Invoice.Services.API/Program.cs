@@ -9,6 +9,7 @@ using Invoice.Infra.Data.Repository;
 using Invoice.Services.API;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -96,6 +97,20 @@ builder.Services.AddStackExchangeRedisCache(options =>
     options.Configuration = builder.Configuration["RedisconnectionString"].ToString();
 });
 
+var allowOrigins = "corsallow";
+builder.Services.AddCors(option =>
+{
+    option.AddPolicy(name: "AllowOrigin",
+        builder => { builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+        });
+});
+
+builder.Services.AddApiVersioning(options =>
+{
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.DefaultApiVersion = new ApiVersion(1, 0);
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -109,6 +124,8 @@ if (app.Environment.IsDevelopment())
 app.UseAuthentication();
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowOrigin");
 
 app.UseAuthorization();
 

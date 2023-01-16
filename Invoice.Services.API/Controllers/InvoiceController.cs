@@ -4,6 +4,7 @@ using Invoice.Applicaion.Interface;
 using Invoice.Applicaion.Validations;
 using Invoice.Domain;
 using Invoice.Infra.Data.Interfaces;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 
@@ -26,7 +27,6 @@ namespace Invoice.Services.API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetInvoice()
         {
-            throw new NullReferenceException();
             Log.Information("Get Invoice API call");
             var invoiceInfo = await _unitOfWork.InvoiceInfo.GetAll();
             foreach (var item in invoiceInfo)
