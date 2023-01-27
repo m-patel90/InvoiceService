@@ -2,6 +2,7 @@
 using Invoice.Domain;
 using Invoice.Infra.Data.Interfaces;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace Invoice.Applicaion.CQRS.Handlers
         }
         public Task<List<Product>> Handle(GetProductQuery request, CancellationToken cancellationToken)
         {
-           return _productRepository.GetAll();
+           return _productRepository.GetAll().ToListAsync();
         }
     }
 }
