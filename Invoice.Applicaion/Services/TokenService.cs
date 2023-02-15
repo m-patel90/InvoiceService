@@ -1,5 +1,5 @@
 ﻿using Invoice.Applicaion.Interfaces;
-using Invoice.Domain;
+using Invoice.Domain.Entity;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.Extensions.Logging;

@@ -3,9 +3,11 @@ using FluentValidation.Results;
 using Invoice.Applicaion.Interface;
 using Invoice.Applicaion.Validations;
 using Invoice.Domain;
+using Invoice.Domain.Entity;
 using Invoice.Infra.Data.Interfaces;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Serilog;
 
 namespace Invoice.Services.API.Controllers
@@ -25,16 +27,30 @@ namespace Invoice.Services.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetInvoice()
+        public async Task<IActionResult> GetInvoice([FromQuery] PagingRequestModel pagingModel)
         {
             Log.Information("Get Invoice API call");
-            var invoiceInfo = await _unitOfWork.InvoiceInfo.GetAll();
-            foreach (var item in invoiceInfo)
+            var invoices = _unitOfWork.InvoiceInfo.GetInvoiceWithPaging(pagingModel);
+            //var invoiceInfo = await _unitOfWork.InvoiceInfo.GetAll().ToListAsync();
+            //foreach (var item in invoiceInfo)
+            //{
+            //    var detail = _unitOfWork.InvoiceDetails.GetByInvoiceId(item.Id);
+            //    item.invoiceDetails = detail;
+            //}
+
+            var metadata = new
             {
-                var detail = _unitOfWork.InvoiceDetails.GetByInvoiceId(item.Id);
-                item.invoiceDetails = detail;
-            }
-            return Ok(invoiceInfo);
+                invoices.TotalCount,
+                invoices.PageSize,
+                invoices.CurrentPage,
+                invoices.TotalPages,
+                invoices.hasPrivious,
+                invoices.hasNext
+            };
+            invoices[0].TotalRecords = invoices.TotalCount;
+            Response.Headers.Add("X-Pagination", Newtonsoft.Json.JsonConvert.SerializeObject(metadata));
+
+            return Ok(invoices);
         }
 
         [HttpPost("SaveInvoice")]

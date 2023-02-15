@@ -1,6 +1,6 @@
 ﻿using Invoice.Applicaion.CQRS.Commands;
 using Invoice.Applicaion.CQRS.Notifications;
-using Invoice.Domain;
+using Invoice.Domain.Entity;
 using Invoice.Infra.Data.Interfaces;
 using MediatR;
 

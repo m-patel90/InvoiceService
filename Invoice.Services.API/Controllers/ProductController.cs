@@ -1,13 +1,13 @@
 ﻿using Invoice.Applicaion.CQRS.Commands;
 using Invoice.Applicaion.CQRS.Notifications;
 using Invoice.Applicaion.CQRS.Queries;
-using Invoice.Domain;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 using System.Text;
 using Newtonsoft.Json;
+using Invoice.Domain.Entity;
 
 namespace Invoice.Services.API.Controllers
 {

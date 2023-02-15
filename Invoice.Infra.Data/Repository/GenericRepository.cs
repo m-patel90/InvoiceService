@@ -28,9 +28,9 @@ namespace Invoice.Infra.Data.Repository
             _appDbContext.Set<T>().Remove(entity);
         }
 
-        public Task<List<T>> GetAll()
+        public IQueryable<T> GetAll()
         {
-           return _appDbContext.Set<T>().ToListAsync();
+           return _appDbContext.Set<T>().AsNoTracking();
         }
 
         public Task<T> GetById(int id)

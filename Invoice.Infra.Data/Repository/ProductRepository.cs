@@ -1,4 +1,4 @@
-﻿using Invoice.Domain;
+﻿using Invoice.Domain.Entity;
 using Invoice.Infra.Data.Interfaces;
 using System;
 using System.Collections.Generic;

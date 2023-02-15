@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Invoice.Domain
+namespace Invoice.Domain.Entity
 {
     public class InvoiceDetails
     {

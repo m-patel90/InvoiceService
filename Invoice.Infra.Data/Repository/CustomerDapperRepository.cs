@@ -1,8 +1,8 @@
-﻿using Invoice.Domain;
-using Invoice.Infra.Data.Interfaces;
+﻿using Invoice.Infra.Data.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Dapper;
 using Microsoft.Data.SqlClient;
+using Invoice.Domain.Entity;
 
 namespace Invoice.Infra.Data.Repository
 {

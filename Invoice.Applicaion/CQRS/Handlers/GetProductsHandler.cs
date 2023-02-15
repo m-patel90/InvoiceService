@@ -1,5 +1,5 @@
 ﻿using Invoice.Applicaion.CQRS.Queries;
-using Invoice.Domain;
+using Invoice.Domain.Entity;
 using Invoice.Infra.Data.Interfaces;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
