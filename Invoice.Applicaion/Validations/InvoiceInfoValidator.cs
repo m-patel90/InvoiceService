@@ -18,8 +18,8 @@ namespace Invoice.Applicaion.Validations
                 .MinimumLength(3).WithMessage("Please enter InvoceNo!");
             RuleFor(InvoiceInfo =>  InvoiceInfo.InvoiceDate).NotEmpty();
             RuleFor(InvoiceInfo => InvoiceInfo.DueDate).NotEmpty().GreaterThan(InvoiceInfo => InvoiceInfo.InvoiceDate);
-            RuleFor(InvoiceInfo => InvoiceInfo.invoiceDetails.Count).GreaterThan(0);
-            RuleForEach(InvoiceInfo => InvoiceInfo.invoiceDetails).SetValidator(new InvoiceDetailsValidator()).When(x => x.invoiceDetails.Count > 0);
+            RuleFor(InvoiceInfo => InvoiceInfo.Details.Count).GreaterThan(0);
+            RuleForEach(InvoiceInfo => InvoiceInfo.Details).SetValidator(new InvoiceDetailsValidator()).When(x => x.Details.Count > 0);
 
             //RuleFor(x => x.invoiceDetails).Custom((list, context) => {
             //    if (list.Count == 0)

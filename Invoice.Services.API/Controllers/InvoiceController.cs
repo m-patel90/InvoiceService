@@ -1,8 +1,10 @@
-﻿using FluentValidation;
+﻿using AutoMapper;
+using FluentValidation;
 using FluentValidation.Results;
 using Invoice.Applicaion.Interface;
 using Invoice.Applicaion.Validations;
 using Invoice.Domain;
+using Invoice.Domain.DTO;
 using Invoice.Domain.Entity;
 using Invoice.Infra.Data.Interfaces;
 using Microsoft.AspNetCore.Cors;
@@ -19,11 +21,12 @@ namespace Invoice.Services.API.Controllers
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IInvoiceService _invoiceService;
-        
-        public InvoiceController(IInvoiceService invoiceService, IUnitOfWork unitOfWork)
+        private IMapper _mapper;        
+        public InvoiceController(IInvoiceService invoiceService, IUnitOfWork unitOfWork, IMapper mapper)
         {
             _invoiceService = invoiceService;
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         [HttpGet]
@@ -54,8 +57,10 @@ namespace Invoice.Services.API.Controllers
         }
 
         [HttpPost("SaveInvoice")]
-        public async Task<IActionResult> SaveInvoice(InvoiceInfo invoiceInfo)
+        public async Task<IActionResult> SaveInvoice(InvoiceDTO invoiceDTO)
         {
+            var invoiceInfo = _mapper.Map<InvoiceInfo>(invoiceDTO);
+
             InvoiceInfoValidator validator = new InvoiceInfoValidator();
             validator.ValidateAndThrow(invoiceInfo);
 

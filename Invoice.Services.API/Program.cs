@@ -75,6 +75,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("InvoiceConnection"))
 );
 
+builder.Services.AddAutoMapper(typeof(Program));
+
 var Configuration = builder.Configuration;
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

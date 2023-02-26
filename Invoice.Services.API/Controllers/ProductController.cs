@@ -35,23 +35,23 @@ namespace Invoice.Services.API.Controllers
         public async Task<IActionResult> GetProduct()
         {
             string serializedcustomerlist;
-            var redisProductList = await _distributedCache.GetAsync("productlist");
+            //var redisProductList = await _distributedCache.GetAsync("productlist");
             var products = new List<Product>();
-            if (redisProductList != null)
-            {
-                serializedcustomerlist = Encoding.UTF8.GetString(redisProductList);
-                products = JsonConvert.DeserializeObject<List<Product>>(serializedcustomerlist);
-            } 
-            else {
+            //if (redisProductList != null)
+            //{
+            //    serializedcustomerlist = Encoding.UTF8.GetString(redisProductList);
+            //    products = JsonConvert.DeserializeObject<List<Product>>(serializedcustomerlist);
+            //} 
+            //else {
                 products = await _mediator.Send(new GetProductQuery());
                 serializedcustomerlist = JsonConvert.SerializeObject(products);
-                redisProductList = Encoding.UTF8.GetBytes(serializedcustomerlist);
-                var options =
-                    new DistributedCacheEntryOptions()
-                        .SetAbsoluteExpiration(DateTime.Now.AddMinutes(10))
-                        .SetSlidingExpiration(TimeSpan.FromMinutes(2));
-                await _distributedCache.SetAsync("productlist", redisProductList, options);
-            }
+                //redisProductList = Encoding.UTF8.GetBytes(serializedcustomerlist);
+                //var options =
+                //    new DistributedCacheEntryOptions()
+                //        .SetAbsoluteExpiration(DateTime.Now.AddMinutes(10))
+                //        .SetSlidingExpiration(TimeSpan.FromMinutes(2));
+                //await _distributedCache.SetAsync("productlist", redisProductList, options);
+            //}
             return Ok(products);
         }
     }

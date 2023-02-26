@@ -21,7 +21,7 @@ namespace Invoice.Applicaion.Services
         public async Task SaveInvoice(InvoiceInfo invoiceInfo)
         {
             await _unitOfWork.InvoiceInfo.Add(invoiceInfo);
-            foreach(InvoiceDetails inv in invoiceInfo.invoiceDetails)
+            foreach(InvoiceDetails inv in invoiceInfo.Details)
             {
                 await _unitOfWork.InvoiceDetails.Add(inv);
             }
