@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: invoice-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: invoice-services-api
+  template:
+    metadata:
+      labels:
+        app: invoice-services-api
+    spec:
+      containers:
+      - name: invoice-services-api
+        image: invoice-services-api:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
