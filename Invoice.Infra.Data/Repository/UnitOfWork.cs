@@ -24,5 +24,10 @@ namespace Invoice.Infra.Data.Repository
         {
             return _contex.SaveChanges();
         }
+
+        public async Task<int> CompleteAsync()
+        {
+            return await _contex.SaveChangesAsync();
+        }
     }
 }
