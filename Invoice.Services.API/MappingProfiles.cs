@@ -12,6 +12,7 @@ namespace Invoice.Services.API
             CreateMap<InvoiceDTO, InvoiceInfo>();
             CreateMap<InvoiceDetailsDTO, InvoiceDetails>()
                 .ForMember(dest => dest.Description , opt => opt.MapFrom(src => src.Desc));
+            CreateMap<ProductDTO, Product>().ReverseMap();
         }
     }
 }

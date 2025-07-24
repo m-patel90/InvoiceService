@@ -18,6 +18,9 @@ namespace Invoice.Applicaion.CQRS.Handlers
 
         public async Task<Product> Handle(AddProductCommand request, CancellationToken cancellationToken)
         {
+            request.product.UniqueId = Guid.NewGuid();
+            request.product.CreatedDate = DateTime.UtcNow;
+            
             var result = await _productRepository.CreateProduct(request.product);
             await _mediator.Publish(new ProductAddedNotification() { product = result });
             return result;

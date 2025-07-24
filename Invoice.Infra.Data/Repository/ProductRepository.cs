@@ -1,5 +1,6 @@
 ﻿using Invoice.Domain.Entity;
 using Invoice.Infra.Data.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,21 @@ namespace Invoice.Infra.Data.Repository
             _appDbContext.Products.Add(product);
             await _appDbContext.SaveChangesAsync();
             return product;
+        }
+
+        public async Task<Product> GetById(int id)
+        {
+            return await _appDbContext.Products.FirstOrDefaultAsync(p => p.Id == id);
+        }
+
+        public async Task<Product> GetByProductCode(string productCode)
+        {
+            return await _appDbContext.Products.FirstOrDefaultAsync(p => p.ProductCode == productCode);
+        }
+
+        public async Task<List<Product>> GetByCategory(string category)
+        {
+            return await _appDbContext.Products.Where(p => p.Description.Contains(category)).ToListAsync();
         }
     }
 }

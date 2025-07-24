@@ -12,17 +12,24 @@ namespace Invoice.Infra.Data.Repository
         private readonly AppDbContext _contex;
         public IInvoiceInfoRepository InvoiceInfo { get; }
         public IInvoiceDetailsRepository InvoiceDetails { get; }
+        public IProductInventoryRepository ProductInventory { get; }
 
-        public UnitOfWork(AppDbContext appDbContext, IInvoiceInfoRepository invoiceInfoRepository, IInvoiceDetailsRepository invoiceDetailsRepository )
+        public UnitOfWork(AppDbContext appDbContext, IInvoiceInfoRepository invoiceInfoRepository, IInvoiceDetailsRepository invoiceDetailsRepository, IProductInventoryRepository productInventoryRepository)
         {
             _contex = appDbContext;
             InvoiceInfo = invoiceInfoRepository;
             InvoiceDetails = invoiceDetailsRepository;
+            ProductInventory = productInventoryRepository;
         }
 
         public int complete()
         {
             return _contex.SaveChanges();
+        }
+
+        public async Task<int> CompleteAsync()
+        {
+            return await _contex.SaveChangesAsync();
         }
     }
 }
