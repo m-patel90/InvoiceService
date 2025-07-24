@@ -10,6 +10,7 @@ namespace Invoice.Infra.Data.Interfaces
     {
         IInvoiceInfoRepository InvoiceInfo { get; }
         IInvoiceDetailsRepository InvoiceDetails { get; }
+        IProductInventoryRepository ProductInventory { get; }
         int complete();
     }
 }
