@@ -21,11 +21,16 @@ namespace Invoice.Applicaion.Services
         public async Task SaveInvoice(InvoiceInfo invoiceInfo)
         {
             await _unitOfWork.InvoiceInfo.Add(invoiceInfo);
-            foreach(InvoiceDetails inv in invoiceInfo.Details)
+            
+            if (invoiceInfo.Details != null && invoiceInfo.Details.Any())
             {
-                await _unitOfWork.InvoiceDetails.Add(inv);
+                foreach(InvoiceDetails inv in invoiceInfo.Details)
+                {
+                    await _unitOfWork.InvoiceDetails.Add(inv);
+                }
             }
-            _unitOfWork.complete();
+            
+            await _unitOfWork.CompleteAsync();
         }
     }
 }

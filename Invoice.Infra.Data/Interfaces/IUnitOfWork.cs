@@ -11,5 +11,6 @@ namespace Invoice.Infra.Data.Interfaces
         IInvoiceInfoRepository InvoiceInfo { get; }
         IInvoiceDetailsRepository InvoiceDetails { get; }
         int complete();
+        Task<int> CompleteAsync();
     }
 }
